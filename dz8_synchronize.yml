@@ -51,6 +51,6 @@
     - name: Copy artefact to prod server
       synchronize:
          mode: push
-         src: 51.250.30.133:/root/buildplace/target/hello-1.0.war
+         src: /root/buildplace/target/hello-1.0.war
          dest: /var/lib/tomcat9/webapp
-      delegate_to: 127.0.0.1
+      delegate_to: 51.250.30.133
