@@ -27,4 +27,4 @@
     - name: Build artefact
       shell:
         cmd: mvn package
-        chdir: /root/buildplace
+        chdir: buildplace/
