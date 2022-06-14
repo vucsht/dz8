@@ -48,7 +48,7 @@
 
     - name: Copy artefact to prod server
       synchronize:
-          mode: pull
-          src: rsync://"{{ build_addr }}"/path/
-          dest: /var/lib/tomcat9/webapp
-        delegate_to: 127.0.0.1
+         mode: pull
+         src: rsync://"{{ build_addr }}"/path/
+         dest: /var/lib/tomcat9/webapp
+      delegate_to: 127.0.0.1
