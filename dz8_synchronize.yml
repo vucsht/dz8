@@ -6,7 +6,7 @@
 
   tasks:
     - set_fact:
-        build_addr: {{inventory_hostname}}
+        build_addr: "{{inventory_hostname}}"
 
     - debug:
         msg: "build_addr"
