@@ -5,17 +5,15 @@
 
 
   tasks:
-    - name: Set variable with addr
+    - name: Ensure git is present
       vars:
         build_addr: "{{inventory_hostname}}"
-
-    - debug:
-        msg: "{{ build_addr }}"
-
-    - name: Ensure git is present
       apt:
         name: git
         state: present
+
+    - debug:
+        msg: "{{ build_addr }}"
 
     - name: Ensure java is present
       apt:
