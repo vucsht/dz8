@@ -28,3 +28,18 @@
       shell:
         cmd: mvn package
         chdir: buildplace/
+
+    - name: Copy artefact to localhost
+      fetch:
+        src: /root/buildplace/target/hello-1.0.war
+        dest: ./
+
+- name: Provisioning prod system
+  hosts: prod
+  become: yes
+
+  tasks:
+    - name: Ensure tomcat is present
+      apt:
+        name: tomcat9
+        state: present
