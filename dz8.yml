@@ -33,6 +33,7 @@
       fetch:
         src: /root/buildplace/target/hello-1.0.war
         dest: /tmp/
+        flat: yes
 
 - name: Provisioning prod system
   hosts: prod
