@@ -22,7 +22,7 @@
     - name: Download project to buld
       git:
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-        dest: /root/buldplace
+        dest: /root/buildplace
 
     - name: Build artefact
       shell:
