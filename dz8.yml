@@ -1,0 +1,30 @@
+---
+- name: Provisioning build system
+  hosts: build
+  become: yes
+
+  tasks:
+    - name: Ensure git is present
+      apt:
+        name: git
+        state: present
+
+    - name: Ensure java is present
+      apt:
+        name: default-jdk
+        state: present
+
+    - name: Ensure maven is present
+      apt:
+        name: maven
+        state: present
+
+    - name: Download project to buld
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /root/buldplace
+
+
+#    - name: Build artefact
+#      shell:
+#        chdir:
