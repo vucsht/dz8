@@ -32,7 +32,7 @@
     - name: Copy artefact to localhost
       fetch:
         src: /root/buildplace/target/hello-1.0.war
-        dest: ./
+        dest: /tmp/
 
 - name: Provisioning prod system
   hosts: prod
