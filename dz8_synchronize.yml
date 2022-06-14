@@ -36,12 +36,6 @@
         cmd: mvn package
         chdir: buildplace/
 
-#    - name: Copy artefact to localhost
-#      fetch:
-#        src: /root/buildplace/target/hello-1.0.war
-#        dest: /tmp/
-#        flat: yes
-
 - name: Provisioning prod system
   hosts: prod
   become: yes
@@ -52,12 +46,9 @@
         name: tomcat9
         state: present
 
-#    - name: Copy artefact to prod server
-#      copy:
-#        src: /tmp/hello-1.0.war
-#        dest: /var/lib/tomcat9/webapps/
-#      synchronize:
-#          mode: pull
-#          src: rsync://somehost.com/path/
-#          dest: /some/absolute/path/
-#        delegate_to: delegate.host
+    - name: Copy artefact to prod server
+      synchronize:
+          mode: pull
+          src: rsync://"{{ build_addr }}"/path/
+          dest: /var/lib/tomcat9/webapp
+        delegate_to: 127.0.0.1
