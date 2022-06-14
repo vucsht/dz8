@@ -9,7 +9,7 @@
         build_addr: "{{inventory_hostname}}"
 
     - debug:
-        msg: "build_addr"
+        msg: "{{ build_addr }}"
 
     - name: Ensure git is present
       apt:
