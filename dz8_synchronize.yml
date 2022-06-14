@@ -45,8 +45,8 @@
         name: tomcat9
         state: present
 
-    - debug:
-        msg: "{{ build_addr }}"
+#    - debug:
+#        msg: "{{ build_addr }}"
 
     - name: Copy artefact to prod server
       synchronize:
