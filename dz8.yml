@@ -25,6 +25,7 @@
         dest: /root/buldplace
 
 
-#    - name: Build artefact
-#      shell:
-#        chdir:
+    - name: Build artefact
+      shell:
+        chdir: /root/buildplace
+        shell: mvn package
