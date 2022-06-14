@@ -24,8 +24,7 @@
         repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
         dest: /root/buldplace
 
-
     - name: Build artefact
       shell:
+        cmd: mvn package
         chdir: /root/buildplace
-        shell: mvn package
