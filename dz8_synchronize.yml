@@ -5,7 +5,8 @@
 
 
   tasks:
-    - set_fact:
+    - name: Set variable with addr
+      vars:
         build_addr: "{{inventory_hostname}}"
 
     - debug:
