@@ -1,0 +1,63 @@
+---
+- name: Provisioning build system
+  hosts: build
+  become: yes
+
+
+  tasks:
+    - set_fact:
+        build_addr: {{inventory_hostname}}
+
+    - debug:
+        msg: "build_addr"
+
+    - name: Ensure git is present
+      apt:
+        name: git
+        state: present
+
+    - name: Ensure java is present
+      apt:
+        name: default-jdk
+        state: present
+
+    - name: Ensure maven is present
+      apt:
+        name: maven
+        state: present
+
+    - name: Download project to buld
+      git:
+        repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+        dest: /root/buildplace
+
+    - name: Build artefact
+      shell:
+        cmd: mvn package
+        chdir: buildplace/
+
+#    - name: Copy artefact to localhost
+#      fetch:
+#        src: /root/buildplace/target/hello-1.0.war
+#        dest: /tmp/
+#        flat: yes
+
+- name: Provisioning prod system
+  hosts: prod
+  become: yes
+
+  tasks:
+    - name: Ensure tomcat is present
+      apt:
+        name: tomcat9
+        state: present
+
+    - name: Copy artefact to prod server
+#      copy:
+#        src: /tmp/hello-1.0.war
+#        dest: /var/lib/tomcat9/webapps/
+#      synchronize:
+#          mode: pull
+#          src: rsync://somehost.com/path/
+#          dest: /some/absolute/path/
+#        delegate_to: delegate.host
