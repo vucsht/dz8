@@ -52,7 +52,7 @@
         name: tomcat9
         state: present
 
-    - name: Copy artefact to prod server
+#    - name: Copy artefact to prod server
 #      copy:
 #        src: /tmp/hello-1.0.war
 #        dest: /var/lib/tomcat9/webapps/
