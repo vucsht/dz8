@@ -54,3 +54,8 @@
          src: /root/buildplace/target/hello-1.0.war
          dest: /var/lib/tomcat9/webapps/
       delegate_to: 178.154.197.116
+
+    - name: Ensure tomcat is restarted
+      service:
+        name: tomcat9
+        state: restarted
