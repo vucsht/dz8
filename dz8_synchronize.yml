@@ -53,4 +53,4 @@
          mode: push
          src: /root/buildplace/target/hello-1.0.war
          dest: /var/lib/tomcat9/webapp
-      delegate_to: 51.250.30.133
+      delegate_to: 178.154.197.116
